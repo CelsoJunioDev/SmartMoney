@@ -1,7 +1,7 @@
 import React from 'react'
-import { View, Text, StyleSheet} from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 
-export default function BalancePainelLabel({currentBalance}) {
+export default function BalanceLabel({currentBalance}) {
     return (
         <View style={styles.container}>
             <Text style={styles.label}>Saldo Atual</Text>
@@ -15,10 +15,9 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     label:{
-        fontSize: 18,
-
+        fontSize: 12,
     },
-    value: {
-        fontSize: 22,
+    value:{
+        fontSize: 18,
     }
 });

@@ -5,14 +5,14 @@ import { View, Text, Button, StyleSheet } from 'react-native'
 import BalancePainelLabel from './BalancePainelLabel';
 import BalancePainalChart from './BalancePainalChart';
 
-export default function BalancePainel() {
+export default function BalancePainel({currentBalance}) {
     return (
         <View style={styles.container}>
-           <BalancePainelLabel/>
+           <BalancePainelLabel currentBalance={currentBalance}/>
            <BalancePainalChart/>
            
            
-           <Button title="Adicionar"/>
+           
         </View>
     )
 }
