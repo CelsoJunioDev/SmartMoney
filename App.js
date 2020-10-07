@@ -18,10 +18,10 @@ import {
   StatusBar,
 } from 'react-native';
 
-
 const App = () => {
   addEntry = () =>{
-    alert("Abrir add lançamento");
+    const x = 'Celso';
+    alert(`Olá ${x}, tudo bem?`); 
   }
 
   return (
@@ -45,8 +45,8 @@ const App = () => {
       {key: "Lazer: $250" },
       {key: "Outros: $1200" }      
     ]}
-    renderItem={({item}) => <Text>{item.key}</Text>}>
-  </FlatList>
+    renderItem={({item}) => <Text>{item.key}</Text>}/>
+  
   <Text style={{fontSize: 22, fontWeight: "bold", 
   marginTop: 10, marginBottom: 10}}>Ultimos lançamentos</Text>
 
@@ -56,8 +56,7 @@ const App = () => {
       {key: "Supermercado Isadora: $190" },
       {key: "Posto Ipiranga: $190" }     
     ]}
-    renderItem={({item}) => <Text>{item.key}</Text>}>
-  </FlatList>
+    renderItem={({item}) => <Text>{item.key}</Text>}/>
         
     </View>
   );
