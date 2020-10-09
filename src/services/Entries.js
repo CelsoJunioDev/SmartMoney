@@ -1,12 +1,12 @@
 import { Alert } from 'react-native';
 import {getRealm} from './Realm';
 
-export const gerEntries = async () => { //CONSULTA AO BD
+export const getEntries = async () => { //CONSULTA AO BD
     const realm = await getRealm(); //busca o BD
 
     const entries = realm.objects('Entry'); // salva os resultados na const entries
 
-    console.log('getEntries :: entries ', entries);
+    console.log('getEntries :: entries ', JSON.stringify(entries));
 
     return entries;
 }
@@ -21,7 +21,7 @@ export const saveEntry = async (value) => {
     try {
         realm.write(() => {
             data = {
-                id: 'ABC',
+                id: 'CBA',
                 amount: amount,
                 entryAt: new Date(),        
                 isInit: false,
