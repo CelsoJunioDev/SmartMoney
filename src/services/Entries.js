@@ -1,5 +1,7 @@
 import { Alert } from 'react-native';
 import {getRealm} from './Realm';
+import {getUUID} from '../services/UUID';
+
 
 export const getEntries = async () => { //CONSULTA AO BD
     const realm = await getRealm(); //busca o BD
@@ -11,19 +13,17 @@ export const getEntries = async () => { //CONSULTA AO BD
     return entries;
 }
 
-export const saveEntry = async (value) => {
+export const saveEntry = async (value, entry = {}) => {
 
     const realm = await getRealm(); 
     let data = {}; 
 
-    const {amount} = value;
-
     try {
         realm.write(() => {
             data = {
-                id: 'CBA',
-                amount: amount,
-                entryAt: new Date(),        
+                id: value.id || entry.id || getUUID(),
+                amount: value.amount || entry.amount,
+                entryAt: value.entryAt || entry.entryAt,        
                 isInit: false,
                
             };
@@ -42,3 +42,17 @@ export const saveEntry = async (value) => {
     return data;
 
 };
+
+export const deleteEntry = async entry => {
+    const realm = await getRealm(); 
+
+    try {
+        realm.write(() => {
+            realm.delete(entry);
+        });
+    } catch (error) {
+        console.error(
+            'deleteEntry :: error on delete object: ', JSON.stringify(entry));
+            Alert.alert("Erro ao salvar excluir este lançamento");
+    }
+}

@@ -22,19 +22,13 @@ export default function Main({navigation}){
         {key: '5', description: 'Outros', amount: '1500'}  ,    
       ];
 
-    const entries= [
-        {key: '1', description: 'Padaria asaa branca', amount: 10},
-        {key: '2', description: 'Supermercado Isadora', amount: 190},
-        {key: '3', description: 'Posto Ipiranga', amount: 291},     
-      ];
-
-    return (
+   return (
         <View style={styles.container}>
            <BalancePainel currentBalance={currentBalance}/>
            <Button title="Adicionar" 
            onPress={() => navigation.navigate('NewEntry')}/>
            <EntrySummary entriesGrouped={entriesGrouped}/>
-           <EntryList entries={entries}/>
+           <EntryList navigation={navigation}/>
            
         </View>
     );
